@@ -1,0 +1,24 @@
+eureka:
+  client:
+    register-with-eureka: true
+    eureka-service-url-poll-interval-seconds: 5
+    fetch-registry: true
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+    enabled: true
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: localhost
+    
+microservice:
+  payment-service:
+    endpoints:
+      endpoint:
+      #copy the request address for payment-service
+        uri: http://PAYMENT-SERVICE/payment/processPayment
+  order-service:
+    endpoints:
+      endpoint:
+      #copy the request address for payment-service
+        uri: http://ORDER-SERVICE/order/bookOrder
